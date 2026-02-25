@@ -3,10 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project Screenshots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        figure {
+            background: #fff;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        figcaption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        /* overlay for enlarged image */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            box-shadow: 0 0 10px #000;
+        }
+    </style>
 </head>
 <body>
-    <p>this is a sample html document created inside vs code</p>
-    <p>this is for the test branch confirmation</p>
+    <h1>Project Screenshots</h1>
+    <p>This page displays the collection of screenshots associated with the project. Each image is presented with a formal title for clarity and professional appearance.</p>
+
+    <section class="gallery">
+        <figure>
+            <img src="Screenshot-of-completion/1.png" alt="Screenshot 1">
+            <figcaption>Figure 1: Initial project setup</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/2.png" alt="Screenshot 2">
+            <figcaption>Figure 2: Feature implementation overview</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/3.png" alt="Screenshot 3">
+            <figcaption>Figure 3: User interface demonstration</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/4.png" alt="Screenshot 4">
+            <figcaption>Figure 4: Configuration settings</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/5.png" alt="Screenshot 5">
+            <figcaption>Figure 5: Completed task view</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/6.png" alt="Screenshot 6">
+            <figcaption>Figure 6: Error handling example</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/7.png" alt="Screenshot 7">
+            <figcaption>Figure 7: Performance metrics</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/8.png" alt="Screenshot 8">
+            <figcaption>Figure 8: Deployment confirmation</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/9.png" alt="Screenshot 9">
+            <figcaption>Figure 9: Final review</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/10.png" alt="Screenshot 10">
+            <figcaption>Figure 10: Additional details</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/11.png" alt="Screenshot 11">
+            <figcaption>Figure 11: Completion summary</figcaption>
+        </figure>
+        <figure>
+            <img src="Screenshot-of-completion/git%20branch%20image.png" alt="Git branch image">
+            <figcaption>Figure 12: Git branch visualization</figcaption>
+        </figure>
+    </section>
+
+    <script>
+        // create overlay and show clicked image at larger size
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay';
+                const largeImg = document.createElement('img');
+                // use same src
+                largeImg.src = img.src;
+                overlay.appendChild(largeImg);
+                // clicking overlay removes it
+                overlay.addEventListener('click', () => {
+                    document.body.removeChild(overlay);
+                });
+                document.body.appendChild(overlay);
+            });
+        });
+    </script>
 </body>
 </html>
