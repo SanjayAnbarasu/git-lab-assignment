@@ -38,7 +38,6 @@
             font-size: 0.9rem;
             color: #555;
         }
-        /* overlay for enlarged image */
         .overlay {
             position: fixed;
             top: 0;
@@ -85,46 +84,43 @@
         </figure>
         <figure>
             <img src="Screenshot-of-completion/6.png" alt="Screenshot 6">
-            <figcaption>Figure 6: Error handling example</figcaption>
+            <figcaption>Figure 6: master addition of files</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/7.png" alt="Screenshot 7">
-            <figcaption>Figure 7: Performance metrics</figcaption>
+            <figcaption>Figure 7: pull request</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/8.png" alt="Screenshot 8">
-            <figcaption>Figure 8: Deployment confirmation</figcaption>
+            <figcaption>Figure 8: Test branch view</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/9.png" alt="Screenshot 9">
-            <figcaption>Figure 9: Final review</figcaption>
+            <figcaption>Figure 9: creation of pull request</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/10.png" alt="Screenshot 10">
-            <figcaption>Figure 10: Additional details</figcaption>
+            <figcaption>Figure 10: Merge pull request</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/11.png" alt="Screenshot 11">
-            <figcaption>Figure 11: Completion summary</figcaption>
+            <figcaption>Figure 11: changed in master from test branch</figcaption>
         </figure>
         <figure>
             <img src="Screenshot-of-completion/git%20branch%20image.png" alt="Git branch image">
-            <figcaption>Figure 12: Git branch visualization</figcaption>
+            <figcaption>Figure 12: Git branch visualization from master to test branch</figcaption>
         </figure>
     </section>
 
     <script>
-        // create overlay and show clicked image at larger size
         document.querySelectorAll('.gallery img').forEach(img => {
             img.style.cursor = 'pointer';
             img.addEventListener('click', () => {
                 const overlay = document.createElement('div');
                 overlay.className = 'overlay';
                 const largeImg = document.createElement('img');
-                // use same src
                 largeImg.src = img.src;
                 overlay.appendChild(largeImg);
-                // clicking overlay removes it
                 overlay.addEventListener('click', () => {
                     document.body.removeChild(overlay);
                 });
